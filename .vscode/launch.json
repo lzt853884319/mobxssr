@@ -9,6 +9,16 @@
             "request": "launch",
             "name": "启动程序",
             "program": "${workspaceFolder}\\server\\server.js"
+        },
+        {
+            "name": "Launch via NPM",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script", "start"
+            ]
         }
     ]
 }

@@ -3,6 +3,7 @@
         "@babel/preset-react"
     ],
     "plugins": [
+        "react-hot-loader/babel",
         "@babel/plugin-proposal-function-bind"
     ]
   }
