@@ -13,16 +13,11 @@ const render = Component => {
 }
 
 render(App)
-
-// webpack Hot Module Replacement API
 if (module.hot) {
     console.log("fasdfasdfasdf");
     
   module.hot.accept('./App.jsx', () => {
-    console.log("fasdfasd21212121212121fasdf");
-    // if you are using harmony modules ({modules:false})
     render(App)
-    // in all other cases - re-require App manually
     render(require('./App.jsx'))
   })
 }
