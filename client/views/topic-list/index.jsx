@@ -1,13 +1,18 @@
 import React from "react";
+import {
+    observer,
+    inject,
+} from "mobx-react";
 
-export default class TopicList extends React.Component {
+
+export default @inject("appState") @observer class TopicList extends React.Component {
     componentDidMount() {
         // dos
     }
 
     render() {
         return (
-            <div>This is topic list</div>
+            // <div>{this.props.appState.msg}</div>
         )
     }
 }
