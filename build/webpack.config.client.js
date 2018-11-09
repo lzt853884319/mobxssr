@@ -17,8 +17,17 @@ const clientConfig = {
         rules: [
             {
               test: /.(js|jsx)$/,
-              loaders: 'babel-loader'
+              loaders: "babel-loader"
+            },
+            {
+              enforce: "pre",
+              test: /.(js|jsx)$/,
+              loaders: "eslint-loader",
+              exclude: [
+                  path.join(__dirname, "../node_modules")
+              ]
             }
+            
           ]
     },
     plugins: [

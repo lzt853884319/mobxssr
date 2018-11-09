@@ -1,7 +1,11 @@
 import React from "react";
-import { hot } from 'react-hot-loader'
+import { hot } from "react-hot-loader"
 
 class App extends React.Component {
+    componentDidMount() {
+        // dos
+    }
+
     render() {
         return (
             <div>Hellow 11 World!!!</div>
@@ -9,4 +13,4 @@ class App extends React.Component {
     }
 }
 
-export default hot(module)(App)
+export default hot(module)(App);

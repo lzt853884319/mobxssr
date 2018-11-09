@@ -17,7 +17,15 @@ module.exports = {
             {
               test: /.(js|jsx)$/,
               loader:"babel-loader"
-            }
+            },
+            {
+                enforce: "pre",
+              test: /.(js|jsx)$/,
+              loaders: "eslint-loader",
+              exclude: [
+                  path.join(__dirname, "../node_modules")
+              ]
+            },
           ]
     }
 }
