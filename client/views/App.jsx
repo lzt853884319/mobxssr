@@ -1,5 +1,7 @@
 import React from "react";
-import { hot } from "react-hot-loader"
+import { hot } from "react-hot-loader";
+import Routes from "config/router";
+import { Link } from "react-router-dom";
 
 class App extends React.Component {
     componentDidMount() {
@@ -8,7 +10,14 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>Hellow World!!!</div>
+            <>
+                <div>
+                    <Link to="/">首页</Link>
+                    &nbsp;&nbsp;
+                    <Link to="/detail">详情页</Link>
+                </div>
+                <Routes />
+            </>
         )
     }
 }
