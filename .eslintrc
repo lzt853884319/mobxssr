@@ -1,8 +1,9 @@
 {
     "extends": "standard",
     "rules": {
-        "quotes": [1, "double"], 
+        "quotes": [1, "double"],
         "semi": "off",
-        "indent": ["warn", 4]
+        "indent": ["warn", 4],
+        "import/no-unresolved": [0]
     }
 }

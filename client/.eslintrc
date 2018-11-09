@@ -15,6 +15,7 @@
         "quotes": [1, "double"],
         "indent": ["warn", 4],
         "react/jsx-indent": ["warn", 4],
-        "react/jsx-filename-extension": [0]
+        "react/jsx-filename-extension": [0],
+        "import/no-unresolved": [0]
     }
 }

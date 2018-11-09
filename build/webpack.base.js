@@ -22,6 +22,16 @@ const config = {
             }
 
         ]
+    },
+    resolve: {
+        alias: {
+            components: path.resolve(__dirname, "../client/components"),
+            views: path.resolve(__dirname, "../client/views"),
+            config: path.resolve(__dirname, "../client/config"),
+            store: path.resolve(__dirname, "../client/store"),
+            client: path.resolve(__dirname, "../client")
+        },
+        extensions: [".tsx", ".ts", ".jsx", ".js"]
     }
 }
 

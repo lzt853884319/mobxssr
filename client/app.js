@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom"
 import { AppContainer } from "react-hot-loader"
-import App from "./App.jsx"
+import App from "views/App"
 
 const render = (Component) => {
     ReactDOM.render(
@@ -14,9 +14,9 @@ const render = (Component) => {
 
 render(App)
 if (module.hot) {
-    module.hot.accept("./App.jsx", () => {
+    module.hot.accept("./views/App", () => {
         render(App)
-        const NextApp = require("./App.jsx"); // eslint-disable-line
+        const NextApp = require("./views/App"); // eslint-disable-line
         render(NextApp);
     })
 }
