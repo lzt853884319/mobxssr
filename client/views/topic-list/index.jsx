@@ -12,7 +12,7 @@ export default @inject("appState") @observer class TopicList extends React.Compo
 
     render() {
         return (
-            // <div>{this.props.appState.msg}</div>
+            <div>{this.props.appState.msg}</div>
         )
     }
 }
