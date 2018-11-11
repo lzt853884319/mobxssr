@@ -1,13 +1,23 @@
 const router = require("express").Router();
 const axios = require("axios");
 
-const baseUrl = "http://cnodejs.org/api/v1";
+const baseUrl = "https://cnodejs.org/api/v1";
 
-router.post("/login", function (req, res) {
-    axios.post(`${baseUrl}/accesstoken`, {
-        accesstoken: req.body.accessToken
+router.post("/login", function (req, res, next) {
+    console.log(req.body.accessToken);
+    // axios.post(`${baseUrl}/accesstoken`, {
+    //     accesstoken: req.body.accessToken
+    // })
+    axios({
+        method: "post",
+        url: `${baseUrl}/accesstoken/`,
+        data: {
+            accesstoken: req.body.accessToken
+        }
     })
         .then(resp => {
+            console.log("success");
+
             if (resp.status === 200 && resp.data.success) {
                 req.session.user = {
                     accessToken: req.body.accessToken,
@@ -21,11 +31,13 @@ router.post("/login", function (req, res) {
                 })
             }
         })
-        .catcha(err => {
+        .catch(err => {
+            console.log("errors");
+            console.log(err.response.data);
             if (err.response) {
                 res.json({
                     success: false,
-                    data: err.response
+                    data: err.response.data
                 })
             } else {
                 next(err);// eslint-disable-line
