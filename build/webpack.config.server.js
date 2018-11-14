@@ -8,6 +8,8 @@ module.exports = webpackMerge(baseConfig, {
     entry: {
         app: path.join(__dirname, "../client/server-entry.js")
     },
+    // 指定某些包不打包到dist
+    externals: Object.keys(require("../package.json").dependencies),
     output: {
         filename: "server-entry.js",
         path: path.join(__dirname, "../dist"),
