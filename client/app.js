@@ -6,18 +6,21 @@ import { Provider } from "mobx-react";
 
 import { BrowserRouter } from "react-router-dom";
 
-import appState from "store/app-state";
+import AppState from "store/app-state";
 
+const initialState = window.__INITAL__STATE__ || {}; // eslint-disable-line
+
+const root = document.getElementById("root")
 const render = (Component) => {
     ReactDOM.render(
         <AppContainer>
-            <Provider appState={appState}>
+            <Provider appState={new AppState(initialState.appState)}>
                 <BrowserRouter>
                     <Component />
                 </BrowserRouter>
             </Provider>
         </AppContainer>,
-        document.getElementById("root"),
+        root,
     )
 }
 
