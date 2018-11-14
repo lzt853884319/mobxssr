@@ -3,6 +3,7 @@ import {
     observer,
     inject,
 } from "mobx-react";
+import Helmet from "react-helmet";
 
 
 export default @inject("appState") @observer class TopicList extends React.Component {
@@ -32,6 +33,15 @@ export default @inject("appState") @observer class TopicList extends React.Compo
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>topic list</title>
+                    <meta name="description" content="This is description" />
+                    <style>
+                        {`input:focus {
+                            border: 1px solid red;
+                        }`}
+                    </style>
+                </Helmet>
                 <input type="text" onChange={this.changeName} />
                 {this.props.appState.msg}
             </div>

@@ -6,8 +6,8 @@ const proxy = require("http-proxy-middleware");
 const asyncBootstrap = require("react-async-bootstrapper");
 const ReactDomServer = require("react-dom/server");
 const ejs = require("ejs");
-const chalk = require("chalk");
 const serialize = require("serialize-javascript");
+const Helmet = require("react-helmet").default;
 
 const serverConfig = require("../../build/webpack.config.server");
 
@@ -82,13 +82,17 @@ module.exports = function (app) {
                     res.end();
                     return
                 }
+                const helmet = Helmet.rewind();
                 const state = getStoreState(stores);
 
                 const content = ReactDomServer.renderToString(app);
 
                 const html = ejs.render(template, {
                     appString: content,
-                    initialState: serialize(state)
+                    initialState: serialize(state),
+                    meta: helmet.meta.toString(),
+                    title: helmet.title.toString(),
+                    style: helmet.style.toString()
                 })
                 res.send(html);
                 // res.send(template.replace("<!--<app></app>-->", content));
